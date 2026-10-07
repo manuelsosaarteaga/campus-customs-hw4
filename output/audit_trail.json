@@ -264,5 +264,219 @@
     ],
     "degraded": false,
     "duration_ms": 4568
+  },
+  {
+    "timestamp": "2026-10-07T00:55:22.526Z",
+    "run_id": "ee61e798-b55f-4d80-ae01-d84a4ca65b7d",
+    "model": "gpt-5.6-luna",
+    "user_id": null,
+    "page": "/",
+    "message": "Yale SOM gear",
+    "tool_calls": [
+      {
+        "tool": "search_products",
+        "args": {
+          "query": "Yale SOM gear",
+          "limit": 12
+        },
+        "result": "1 matches; returned 1: school-of-management-crest-t-shirt",
+        "ok": true,
+        "timestamp": "2026-10-07T00:55:20.696747+00:00"
+      }
+    ],
+    "retries": [],
+    "model_requests": 2,
+    "input_tokens": 6162,
+    "output_tokens": 82,
+    "stop_reason": "final_result",
+    "reply": "I found 1 Yale School of Management item—check it out on the page. Boola Boola!",
+    "product_ids": [
+      "school-of-management-crest-t-shirt"
+    ],
+    "degraded": false,
+    "duration_ms": 4473
+  },
+  {
+    "timestamp": "2026-10-07T00:56:07.239Z",
+    "run_id": "fee3692b-7f17-4301-8cb7-1214b7582867",
+    "model": "gpt-5.6-luna",
+    "user_id": null,
+    "page": "/",
+    "message": "high end stuff?",
+    "tool_calls": [
+      {
+        "tool": "search_products",
+        "args": {
+          "query": "high end Yale gear",
+          "limit": 12
+        },
+        "result": "9 matches; returned 9: big-yale-tri-blend-t-shirt, district-tri-blend-t-shirt-vintage-shield, tri-blend-sports-baseball-t-shirt, tri-blend-sports-basketball-t-shirt, tri-blend-sports-football-t-shirt, tri-blend-sports-hockey-t-shirt, tri-blend-sports-soccer-t-shirt, tri-blend-sports-tennis-t-shirt,…",
+        "ok": true,
+        "timestamp": "2026-10-07T00:56:00.952166+00:00"
+      },
+      {
+        "tool": "search_products",
+        "args": {
+          "query": "Yale premium quarter zip",
+          "garment_type": "quarter-zip",
+          "limit": 12
+        },
+        "result": "11 matches; returned 11: benjamin-franklin-1-4-zip, berkeley-1-4-zip, branford-1-4-zip, morse-1-4-zip, school-of-art-1-4-zip, school-of-engineering-1-4-zip, school-of-medicine-1-4-zip, school-of-public-health-1-4-zip, trumbull-1-4-zip, yale-law-school-1-4-zip, school-of-architecture-crewneck",
+        "ok": true,
+        "timestamp": "2026-10-07T00:56:04.647038+00:00"
+      },
+      {
+        "tool": "search_products",
+        "args": {
+          "query": "Yale premium jacket",
+          "garment_type": "jacket",
+          "limit": 12
+        },
+        "result": "8 matches; returned 8: benjamin-franklin-fleece-jacket, berkeley-sweater-fleece-jacket, brooks-brothers-bomber-jacket-yale, divinity-school-fleece-sweater, saybrook-sweater-fleece-jacket, school-of-architecture-fleece-sweater, school-of-art-fleece-sweater, school-of-music-fleece-sweater",
+        "ok": true,
+        "timestamp": "2026-10-07T00:56:04.646053+00:00"
+      },
+      {
+        "tool": "search_products",
+        "args": {
+          "query": "Yale premium fleece",
+          "garment_type": "fleece",
+          "limit": 12
+        },
+        "result": "7 matches; returned 7: benjamin-franklin-fleece-jacket, berkeley-sweater-fleece-jacket, divinity-school-fleece-sweater, saybrook-sweater-fleece-jacket, school-of-architecture-fleece-sweater, school-of-art-fleece-sweater, school-of-music-fleece-sweater",
+        "ok": true,
+        "timestamp": "2026-10-07T00:56:04.647093+00:00"
+      }
+    ],
+    "retries": [],
+    "model_requests": 3,
+    "input_tokens": 14007,
+    "output_tokens": 540,
+    "stop_reason": "final_result",
+    "reply": "For a more polished, high-end look, I’d start with the Brooks Brothers Yale Bomber Jacket ($98.00), Yale quarter-zips ($72.00), and full-zip fleece jackets ($98.00). I’ve put the strongest options on the page—Boola Boola!",
+    "product_ids": [
+      "brooks-brothers-bomber-jacket-yale",
+      "school-of-art-1-4-zip",
+      "divinity-school-fleece-sweater",
+      "saybrook-sweater-fleece-jacket",
+      "school-of-art-fleece-sweater",
+      "school-of-music-fleece-sweater",
+      "berkeley-sweater-fleece-jacket"
+    ],
+    "degraded": false,
+    "duration_ms": 8833
+  },
+  {
+    "timestamp": "2026-10-07T14:20:58.288Z",
+    "run_id": "0becdd5c-2428-45dd-b89e-a2e01410fb0e",
+    "model": "gpt-5.6-luna",
+    "user_id": null,
+    "page": "/products/baseball-left-chest-crewneck",
+    "message": "Do you have this in XL? And how much is it?",
+    "tool_calls": [
+      {
+        "tool": "check_stock",
+        "args": {
+          "product_id": "baseball-left-chest-crewneck",
+          "size": "XL"
+        },
+        "result": "baseball-left-chest-crewneck: XL=0 → XL sold_out",
+        "ok": true,
+        "timestamp": "2026-10-07T14:20:56.435790+00:00"
+      },
+      {
+        "tool": "get_price",
+        "args": {
+          "product_id": "baseball-left-chest-crewneck"
+        },
+        "result": "baseball-left-chest-crewneck: $58.00",
+        "ok": true,
+        "timestamp": "2026-10-07T14:20:56.435878+00:00"
+      }
+    ],
+    "retries": [],
+    "model_requests": 2,
+    "input_tokens": 6433,
+    "output_tokens": 168,
+    "stop_reason": "final_result",
+    "reply": "It’s $58.00, but XL is sold out. It’s currently available in S, M, L, and XXL.",
+    "product_ids": [
+      "baseball-left-chest-crewneck"
+    ],
+    "degraded": false,
+    "duration_ms": 5166
+  },
+  {
+    "timestamp": "2026-10-07T14:21:03.433Z",
+    "run_id": "3a9d57ad-bcf7-4d05-a597-c64627cc9551",
+    "model": "gpt-5.6-luna",
+    "user_id": null,
+    "page": "/products/baseball-left-chest-crewneck",
+    "message": "What about size L?",
+    "tool_calls": [
+      {
+        "tool": "check_stock",
+        "args": {
+          "product_id": "baseball-left-chest-crewneck",
+          "size": "L"
+        },
+        "result": "baseball-left-chest-crewneck: L=25 → L in_stock",
+        "ok": true,
+        "timestamp": "2026-10-07T14:21:01.222446+00:00"
+      }
+    ],
+    "retries": [],
+    "model_requests": 2,
+    "input_tokens": 6436,
+    "output_tokens": 122,
+    "stop_reason": "final_result",
+    "reply": "Yes—size L is in stock for the Baseball Left Chest Crewneck.",
+    "product_ids": [
+      "baseball-left-chest-crewneck"
+    ],
+    "degraded": false,
+    "duration_ms": 4057
+  },
+  {
+    "timestamp": "2026-10-07T14:21:12.464Z",
+    "run_id": "7f969aad-595e-436a-82c9-4df3b87d2a32",
+    "model": "gpt-5.6-luna",
+    "user_id": null,
+    "page": "/",
+    "message": "What hoodies do you have?",
+    "tool_calls": [
+      {
+        "tool": "search_products",
+        "args": {
+          "garment_type": "hoodie",
+          "limit": 12
+        },
+        "result": "27 matches; returned 12: basic-hoodie-big-yale, brooks-brothers-double-knit-full-zip-hoodie-yale, champion-full-zip-hood, champion-reverse-weave-hoodie-1, crew-left-chest-hoodie, district-vit-hoodie-vintage-bulldog, district-vit-hoodie-vintage-sailor-bulldog, fencing-left-chest-hoodie, ice-hockey-l…",
+        "ok": true,
+        "timestamp": "2026-10-07T14:21:09.332650+00:00"
+      }
+    ],
+    "retries": [],
+    "model_requests": 2,
+    "input_tokens": 7056,
+    "output_tokens": 230,
+    "stop_reason": "final_result",
+    "reply": "We have 27 hoodies—here are 12 options on the page, including classic Yale, Bulldog, athletic, and school designs. Boola Boola!",
+    "product_ids": [
+      "basic-hoodie-big-yale",
+      "brooks-brothers-double-knit-full-zip-hoodie-yale",
+      "champion-full-zip-hood",
+      "champion-reverse-weave-hoodie-1",
+      "crew-left-chest-hoodie",
+      "district-vit-hoodie-vintage-bulldog",
+      "district-vit-hoodie-vintage-sailor-bulldog",
+      "fencing-left-chest-hoodie",
+      "ice-hockey-left-chest-hoodie",
+      "sailing-left-chest-hoodie",
+      "squash-left-chest-hoodie",
+      "the-forest-school-hoodie"
+    ],
+    "degraded": false,
+    "duration_ms": 5158
   }
 ]

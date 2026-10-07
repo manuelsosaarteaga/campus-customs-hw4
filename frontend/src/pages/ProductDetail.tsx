@@ -36,7 +36,7 @@ export default function ProductDetail() {
   return (
     <section className="page">
       <nav className="crumbs" aria-label="Breadcrumb">
-        <Link to="/products">Shop</Link>
+        <Link to="/products">Products</Link>
         {category && <><span>/</span><Link to={`/products?cat=${category.slug}`}>{category.label}</Link></>}
         <span>/</span><span aria-current="page">{product.name}</span>
       </nav>

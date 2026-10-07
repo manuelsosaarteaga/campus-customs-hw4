@@ -88,13 +88,13 @@
 
       <figure>
         <a href="app_check_images/1-honest-stock-price.png" target="_blank"><img src="app_check_images/1-honest-stock-price.png" alt="Chat on the Baseball Left Chest Crewneck page answering that XL is sold out and the price is $58.00" /></a>
-        <figcaption><strong>Sold-out size, exact price.</strong> On the Baseball Left Chest Crewneck page the shopper asks <q>Do you have this in XL? And how much is it?</q>. The assistant knows what "this" means from the page context and replies <q>It's $58.00, but the Baseball Left Chest Crewneck is sold out in XL. It's currently available in S, M, L, and XXL.</q> This matches the DB and the size grid on the page (XS and XL struck through).</figcaption>
+        <figcaption><strong>Sold-out size, exact price.</strong> On the Baseball Left Chest Crewneck page the shopper asks <q>Do you have this in XL? And how much is it?</q>. The assistant knows what "this" means from the page context and replies <q>It's $58.00, but XL is sold out. It's currently available in S, M, L, and XXL.</q> This matches the DB and the size grid on the page (XS and XL struck through).</figcaption>
       </figure>
 
       <div class="pair">
         <figure>
           <a href="app_check_images/1b-honest-stock-followup.png" target="_blank"><img src="app_check_images/1b-honest-stock-followup.png" alt="Follow-up question about size L answered as available" /></a>
-          <figcaption><strong>In-stock follow-up.</strong> <q>What about size L?</q> → <q>Yes—it's available in size L.</q> (DB: L = 25.) The assistant re-checks stock with its tool on every turn instead of reusing earlier answers.</figcaption>
+          <figcaption><strong>In-stock follow-up.</strong> <q>What about size L?</q> → <q>Yes—size L is in stock for the Baseball Left Chest Crewneck.</q> (DB: L = 25.) The assistant re-checks stock with its tool on every turn instead of reusing earlier answers.</figcaption>
         </figure>
         <div class="evidence">
           <h3>Database evidence</h3>
@@ -123,7 +123,7 @@
 
       <figure>
         <a href="app_check_images/2-dynamic-cards.png" target="_blank"><img src="app_check_images/2-dynamic-cards.png" alt="'From your chat · Hoodies' row of 12 product cards at the top of the home page" /></a>
-        <figcaption><strong>Cards appear on the page.</strong> The shopper asks <q>What hoodies do you have?</q>. The agent replies <q>We have 27 hoodies—here are 12 favorites on the page…</q> and a <b>"From your chat · Hoodies (12)"</b> row of product cards (photo, name, price, stock badge) slides in at the top of the page. The DB has 27 hoodie-type products, and the card data comes from the database, not from the AI's text.</figcaption>
+        <figcaption><strong>Cards appear on the page.</strong> The shopper asks <q>What hoodies do you have?</q>. The agent replies <q>We have 27 hoodies—here are 12 options on the page…</q> and a <b>"From your chat · Hoodies (12)"</b> row of product cards (photo, name, price, stock badge) slides in at the top of the page. The DB has 27 hoodie-type products, and the card data comes from the database, not from the AI's text.</figcaption>
       </figure>
 
       <div class="pair">
@@ -175,7 +175,7 @@
         <li>Check 2: Home → chat <q>What hoodies do you have?</q> → click any card.</li>
         <li>Check 3: Shop → type <q>saybrok</q> in the search box.</li>
       </ol>
-      <p>Screenshots were captured from the live site with headless Chrome on 2026-10-06 (model <code>gpt-5.6-luna</code> via Portkey). AI wording can vary slightly between runs; the stock and price facts come from the database.</p>
+      <p>Screenshots were captured from the live site with headless Chrome on 2026-10-07 (model <code>gpt-5.6-luna</code> via Portkey). AI wording can vary slightly between runs; the stock and price facts come from the database.</p>
     </section>
   </main>
 

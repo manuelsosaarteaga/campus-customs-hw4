@@ -37,7 +37,7 @@ export default function NavBar() {
           </button>
           <nav className={`nav-links${menuOpen ? ' open' : ''}`}>
             <NavLink to="/" end>Home</NavLink>
-            <NavLink to="/products">Shop</NavLink>
+            <NavLink to="/products">Products</NavLink>
             <NavLink to="/about">About Us</NavLink>
             {user ? (
               <>

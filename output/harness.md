@@ -84,6 +84,18 @@ Code: `backend/auth.py` (API) · `frontend/src/auth.tsx` (session state) · `fro
 3. **Session:** The token is signed with `itsdangerous` (HMAC) and holds only the user ID; it expires after 7 days. The frontend keeps it in `localStorage`, sends it as a Bearer header, and calls `/me` on page load to restore the session. Log out deletes the token.
 4. **Who sees what:** API responses only ever return `id`, `name`, `first_name`, `last_name`, `email`. `password_hash` never leaves the backend and is never given to the chatbot.
 
+### What's stored per user (`users` table)
+| Column | Stored value |
+|---|---|
+| `id` | Auto-increment account id (used for sessions, chat history, audit `user_id`) |
+| `first_name`, `last_name` | As typed at signup (trimmed, 1–50 chars each) |
+| `name` | "First Last" (fills the table's existing NOT NULL column) |
+| `email` | Lower-cased, unique (login identifier) |
+| `password_hash` | **Argon2id hash only**, e.g. `$argon2id$v=19$m=65536,t=3,p=4$<salt>$<hash>`. The plain password is never stored, logged, or returned |
+| `created_at` | Set by SQLite (`datetime('now')`) |
+
+Logged-in users' chat messages are stored separately in `chat_messages` (see Customer memory).
+
 ### How passwords are protected
 - **Never stored in plain text.** New passwords are hashed with **Argon2id** (`argon2-cffi`, 64 MiB memory, 3 passes, 4 lanes, random 16-byte salt per password). Argon2id won the Password Hashing Competition and is memory-hard, which makes GPU brute-force expensive. (Chose `argon2-cffi` over `passlib` because passlib is unmaintained and breaks on current Python.)
 - **Seed users still work.** The provided DB stores `pbkdf2_sha256$<salt>$<hex>` hashes (PBKDF2-HMAC-SHA256, 120,000 iterations — determined by verifying the test user). The backend verifies that format with a constant-time comparison (`hmac.compare_digest`).

@@ -324,6 +324,6 @@ Problem 13 — Push to GitHub and submit the URL
 > 4. write a simple README.md explaining how to run the front end and backend after putting the data pack (data/campus_customs.db and data/products/) in place.
 
 ### 3. Follow-up prompt (if needed)
-_None needed._
+> push it
 
-**What was missing after the first prompt:** _N/A_
+**What was missing after the first prompt:** The first prompt only got the folder ready (gitignore, .env.example, README, structure), but the code still wasn't on GitHub, so I had to ask it to actually create the public repo and push.
