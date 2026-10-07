@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Customs App Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #00356b; --ink: #16181d; --muted: #646a73; --line: #e6e3db; --bg: #fdfcf9;
+      --card: #fff; --cream: #f8f4ea; --gold: #c9a227; --ok: #1f7a4d; --ok-soft: #e7f5ee; --bad: #b42318;
+      --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', -apple-system, 'Segoe UI', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    header { background: var(--navy); color: #fff; padding: 40px 16px 32px; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+    header .wrap { padding: 0; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 700; color: var(--gold); margin: 0 0 8px; }
+    h1, h2 { font-family: var(--serif); font-weight: 600; letter-spacing: -.01em; margin: 0 0 8px; }
+    h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+    header p { margin: 0; color: #d6deea; max-width: 760px; }
+    .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: -20px auto 8px; max-width: 1080px; padding: 0 16px; }
+    .summary a { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; color: var(--ink); text-decoration: none; box-shadow: 0 8px 24px -14px rgba(11,31,58,.35); }
+    .summary a:hover { border-color: var(--navy); }
+    .summary b { display: block; font-size: .95rem; }
+    .summary span { font-size: .82rem; color: var(--muted); }
+    .pass { display: inline-block; background: var(--ok-soft); color: var(--ok); font-weight: 700; font-size: .72rem; letter-spacing: .06em; padding: 3px 9px; border-radius: 999px; margin-bottom: 6px; }
+    section.check { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px; margin: 28px 0; }
+    .check h2 { font-size: 1.6rem; }
+    .check-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+    .num { font-family: var(--serif); color: var(--gold); font-size: 1rem; margin-right: 6px; }
+    .goal { color: var(--muted); margin: 0 0 18px; max-width: 760px; }
+    figure { margin: 0 0 22px; }
+    figure a { display: block; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 14px 34px -20px rgba(11,31,58,.45); }
+    figure img { display: block; width: 100%; height: auto; }
+    figcaption { margin-top: 10px; font-size: .95rem; }
+    figcaption strong { color: var(--navy); }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .pair figcaption { font-size: .9rem; }
+    .evidence { background: var(--cream); border-radius: 14px; padding: 16px 18px; font-size: .9rem; }
+    .evidence h3 { margin: 0 0 8px; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: var(--navy); }
+    .evidence p { margin: 6px 0; }
+    q { font-style: italic; }
+    table { border-collapse: collapse; width: 100%; max-width: 560px; margin: 8px 0; background: #fff; border-radius: 10px; overflow: hidden; font-size: .88rem; }
+    th, td { text-align: left; padding: 7px 12px; border-bottom: 1px solid var(--line); }
+    th { background: #f1ede2; font-weight: 600; }
+    td.zero { color: var(--bad); font-weight: 600; }
+    code { font-size: .85em; background: #fff; border: 1px solid var(--line); padding: 1px 6px; border-radius: 6px; }
+    .how { font-size: .9rem; color: var(--muted); }
+    .how ol { padding-left: 20px; }
+    footer { text-align: center; color: var(--muted); font-size: .82rem; padding: 24px 16px 48px; }
+    @media (max-width: 760px) {
+      .summary, .pair { grid-template-columns: 1fr; }
+      .summary { margin-top: 16px; }
+      section.check { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">MGT 409 · HW4 · Problem 11</p>
+      <h1>Campus Customs — App Check</h1>
+      <p>Screenshots of the running site (React + Vite front end, FastAPI + PydanticAI backend, SQLite <code style="background:transparent;border-color:#3d5f8a;color:#fff">campus_customs.db</code>). Each check shows what the shopper did, what the site returned, and the database values it should match. Click any screenshot to open it full size.</p>
+    </div>
+  </header>
+
+  <nav class="summary" aria-label="Checks">
+    <a href="#check-1"><span class="pass">PASS</span><b>1 · Honest stock &amp; price</b><span>Chat answers from the DB, including a sold-out size</span></a>
+    <a href="#check-2"><span class="pass">PASS</span><b>2 · Dynamic search cards</b><span>"What hoodies do you have?" → cards on the page</span></a>
+    <a href="#check-3"><span class="pass">PASS</span><b>3 · Usability feature</b><span>Typo-tolerant search (+ quick replies, stock badges)</span></a>
+  </nav>
+
+  <main class="wrap">
+
+    <!-- ============================ CHECK 1 ============================ -->
+    <section class="check" id="check-1">
+      <div class="check-head">
+        <div>
+          <span class="pass">PASS</span>
+          <h2><span class="num">01</span>Chat checks real inventory from the database</h2>
+        </div>
+      </div>
+      <p class="goal">Goal: the assistant must look up price and stock with its tools (no guessing) and say clearly when a size is sold out.</p>
+
+      <figure>
+        <a href="app_check_images/1-honest-stock-price.png" target="_blank"><img src="app_check_images/1-honest-stock-price.png" alt="Chat on the Baseball Left Chest Crewneck page answering that XL is sold out and the price is $58.00" /></a>
+        <figcaption><strong>Sold-out size, exact price.</strong> On the Baseball Left Chest Crewneck page the shopper asks <q>Do you have this in XL? And how much is it?</q>. The assistant knows what "this" means from the page context and replies <q>It's $58.00, but the Baseball Left Chest Crewneck is sold out in XL. It's currently available in S, M, L, and XXL.</q> This matches the DB and the size grid on the page (XS and XL struck through).</figcaption>
+      </figure>
+
+      <div class="pair">
+        <figure>
+          <a href="app_check_images/1b-honest-stock-followup.png" target="_blank"><img src="app_check_images/1b-honest-stock-followup.png" alt="Follow-up question about size L answered as available" /></a>
+          <figcaption><strong>In-stock follow-up.</strong> <q>What about size L?</q> → <q>Yes—it's available in size L.</q> (DB: L = 25.) The assistant re-checks stock with its tool on every turn instead of reusing earlier answers.</figcaption>
+        </figure>
+        <div class="evidence">
+          <h3>Database evidence</h3>
+          <p><code>SELECT c.price, i.size, i.quantity FROM catalogue c JOIN inventory i USING(product_id) WHERE product_id = 'baseball-left-chest-crewneck'</code></p>
+          <table>
+            <thead><tr><th>Size</th><th>Quantity</th><th>Price</th></tr></thead>
+            <tbody>
+              <tr><td>XS</td><td class="zero">0 (sold out)</td><td>$58.00</td></tr>
+              <tr><td>S</td><td>15</td><td>$58.00</td></tr>
+              <tr><td>M</td><td>5</td><td>$58.00</td></tr>
+              <tr><td>L</td><td>25</td><td>$58.00</td></tr>
+              <tr><td>XL</td><td class="zero">0 (sold out)</td><td>$58.00</td></tr>
+              <tr><td>XXL</td><td>25</td><td>$58.00</td></tr>
+            </tbody>
+          </table>
+          <p><b>How honesty is enforced:</b> the agent calls <code>check_stock</code> / <code>get_price</code> against SQLite, and a backend validator rejects any reply quoting a price no tool returned that turn.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CHECK 2 ============================ -->
+    <section class="check" id="check-2">
+      <span class="pass">PASS</span>
+      <h2><span class="num">02</span>Dynamic search result cards on the page</h2>
+      <p class="goal">Goal: asking about a category in chat makes the agent search the catalogue and the site show the matching products as cards, and each card opens the single-item view.</p>
+
+      <figure>
+        <a href="app_check_images/2-dynamic-cards.png" target="_blank"><img src="app_check_images/2-dynamic-cards.png" alt="'From your chat · Hoodies' row of 12 product cards at the top of the home page" /></a>
+        <figcaption><strong>Cards appear on the page.</strong> The shopper asks <q>What hoodies do you have?</q>. The agent replies <q>We have 27 hoodies—here are 12 favorites on the page…</q> and a <b>"From your chat · Hoodies (12)"</b> row of product cards (photo, name, price, stock badge) slides in at the top of the page. The DB has 27 hoodie-type products, and the card data comes from the database, not from the AI's text.</figcaption>
+      </figure>
+
+      <div class="pair">
+        <figure>
+          <a href="app_check_images/2b-card-opens-item-page.png" target="_blank"><img src="app_check_images/2b-card-opens-item-page.png" alt="Brooks Brothers Double Knit Full Zip Hoodie item page opened from a chat card" /></a>
+          <figcaption><strong>Card → single-item view.</strong> Clicking the 2nd card opens <code>/products/brooks-brothers-double-knit-full-zip-hoodie-yale</code>: large image, full description, $88.00, and per-size stock. The chat row stays on top with the current item highlighted.</figcaption>
+        </figure>
+        <div class="evidence">
+          <h3>How the cards get to the page</h3>
+          <p>1. Agent calls <code>search_products</code> → returns <code>AgentReply {message, product_ids, results_title: "Hoodies"}</code>.</p>
+          <p>2. Backend rebuilds each card from SQLite (<code>ProductCard</code>: id, name, price, image, colors, available sizes) and drops any id the tools didn't return.</p>
+          <p>3. React stores them in shared state and renders the same <code>ProductCard</code> link used on the Shop page, so each one opens <code>/products/{id}</code>.</p>
+          <p><b>DB check:</b> <code>SELECT COUNT(*) FROM catalogue WHERE garment_type LIKE '%hood%'</code> → <b>27</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CHECK 3 ============================ -->
+    <section class="check" id="check-3">
+      <span class="pass">PASS</span>
+      <h2><span class="num">03</span>Usability feature: typo-tolerant search</h2>
+      <p class="goal">Goal: one of the Problem 9 upgrades working on the live site. Misspelled college, sport, and garment names still find products, both in the Shop search box and in chat.</p>
+
+      <figure>
+        <a href="app_check_images/3-fuzzy-search.png" target="_blank"><img src="app_check_images/3-fuzzy-search.png" alt="Shop search for 'saybrok' showing results for saybrook" /></a>
+        <figcaption><strong>Fuzzy search.</strong> Typing <q>saybrok</q> in the Shop search shows <b>"Showing results for saybrook · you typed 'saybrok'"</b> and the 3 Saybrook items (College Crewneck, Logo T Shirt, Sweater Fleece Jacket), instead of "no results". The backend matches misspelled words against the catalogue's vocabulary (<code>difflib</code>, similarity ≥ 0.8), and the chat agent's search tool uses the same ranking.</figcaption>
+      </figure>
+
+      <div class="pair">
+        <figure>
+          <a href="app_check_images/3b-quick-replies-badges.png" target="_blank"><img src="app_check_images/3b-quick-replies-badges.png" alt="Crewnecks page with an 'Only 2 sizes left' badge and quick-reply buttons in the chat" /></a>
+          <figcaption><strong>Bonus: quick replies + stock badges.</strong> The chat opens with tappable suggestions ("What hoodies do you have?", "Gifts under $40", …), and cards show live stock badges such as <b>"Only 2 sizes left"</b> on the Champion Reverse Weave Crewneck (DB: only M and XL in stock).</figcaption>
+        </figure>
+        <div class="evidence">
+          <h3>All four Problem 9 upgrades</h3>
+          <p><b>Front end:</b> context-aware quick-reply buttons · stock badges on every card.</p>
+          <p><b>Backend:</b> typo-tolerant search (shown here) · graceful failure (timeouts and retries, plus database fallback cards and a "Try again" button when the AI is down).</p>
+          <p>Details and full test results: <code>output/usability.md</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="check how">
+      <h2 style="font-size:1.2rem">How to reproduce</h2>
+      <ol>
+        <li>Backend: <code>cd backend &amp;&amp; uvicorn main:app --reload --port 8000</code> (needs <code>PORTKEY_API_KEY</code> and <code>data/campus_customs.db</code>).</li>
+        <li>Frontend: <code>cd frontend &amp;&amp; npm install &amp;&amp; npm run dev</code>, then open <code>http://localhost:5173</code>.</li>
+        <li>Check 1: open the Baseball Left Chest Crewneck page → chat <q>Do you have this in XL? And how much is it?</q></li>
+        <li>Check 2: Home → chat <q>What hoodies do you have?</q> → click any card.</li>
+        <li>Check 3: Shop → type <q>saybrok</q> in the search box.</li>
+      </ol>
+      <p>Screenshots were captured from the live site with headless Chrome on 2026-10-06 (model <code>gpt-5.6-luna</code> via Portkey). AI wording can vary slightly between runs; the stock and price facts come from the database.</p>
+    </section>
+  </main>
+
+  <footer>Campus Customs · HW4 App Check · all images in <code>output/app_check_images/</code></footer>
+</body>
+</html>

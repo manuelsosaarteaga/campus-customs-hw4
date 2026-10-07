@@ -1,0 +1,33 @@
+# ---- Data pack: never commit the database or product images ----
+data/
+data.zip
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+products/
+
+# ---- Secrets: real env files stay local (the template is committed) ----
+.env
+.env.*
+!.env.example
+
+# ---- Python ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# ---- Node / Vite ----
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# ---- Logs, scratch, editors, OS ----
+*.log
+output/*.corrupt-*.json
+.vscode/
+.idea/
+.DS_Store
